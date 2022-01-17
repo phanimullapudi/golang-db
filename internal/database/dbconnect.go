@@ -4,7 +4,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/jinzhu/gorm"
+	"gorm.io/driver/postgres"
+	"gorm.io/gorm"
 )
 
 func NewDatabase() (*gorm.DB, error) {
@@ -18,12 +19,8 @@ func NewDatabase() (*gorm.DB, error) {
 
 	connectString := fmt.Sprintf("host=%s port=%s user=%s dbname=%s password=%s sslmode=%s", dbHost, dbPort, dbUsername, dbTable, dbPassword, sslmode)
 
-	db, err := gorm.Open("postgres", connectString)
+	db, err := gorm.Open(postgres.Open(connectString), &gorm.Config{})
 	if err != nil {
-		return db, err
-	}
-
-	if err := db.DB().Ping(); err != nil {
 		return db, err
 	}
 
