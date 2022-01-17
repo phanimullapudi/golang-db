@@ -6,11 +6,13 @@ import (
 	"github.com/phanimullapudi/golang-db/internal/database"
 )
 
+// App - the struct which contains pointers to database connections and etc....
 type App struct {
 	Name    string
 	Version string
 }
 
+// Run - sets up our application
 func (app *App) Run() error {
 	fmt.Println("Setting up the App")
 

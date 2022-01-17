@@ -9,6 +9,7 @@ import (
 
 var users *user.User
 
+// RetriveData - to retrieve first record for the condition matched
 func RetriveData(db *gorm.DB) error {
 
 	fmt.Println("Retrieving Data")

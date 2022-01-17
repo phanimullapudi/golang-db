@@ -8,6 +8,7 @@ import (
 	"gorm.io/gorm"
 )
 
+// NewDatabase - pointer to database object
 func NewDatabase() (*gorm.DB, error) {
 
 	dbUsername := os.Getenv("DB_USERNAME")

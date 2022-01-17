@@ -6,11 +6,12 @@ import (
 	"gorm.io/gorm"
 )
 
+// Service - the struct for our user service
 type Service struct {
 	DB *gorm.DB
 }
 
-// equals
+// User - defines our user structure
 type User struct {
 	ID        uint `gorm:"primaryKey"`
 	CreatedAt time.Time
@@ -19,6 +20,7 @@ type User struct {
 	Name      string
 }
 
+// NewService - returns a new user service
 func NewService(db *gorm.DB) *Service {
 	return &Service{
 		DB: db,
